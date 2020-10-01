@@ -9,7 +9,7 @@ var imageBuffer;
 var time = 0;
 var frequency;
 var text;
-var expression = '20 * cos(v * p * t / T)';
+var expression = '20*sin(2 * t)';
 var color_rgb;
 var color_hsv;
 
@@ -382,7 +382,7 @@ window.onload = () => {
     imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     imageBuffer = imageData.data;
     let source = .1 * .1 * 10000 * Math.cos(10 * Math.PI * 2 / 20);
-    expression = '20 * cos(v * p * t / T)';
+    expression = '20*sin(2 * t)';
     vars = {
         'd': .1,
         'v': 10,
