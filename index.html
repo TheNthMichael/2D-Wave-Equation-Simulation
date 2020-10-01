@@ -12,10 +12,19 @@
 
     <canvas id="Canvas" width="600" height="400"></canvas>
     <h4>Click to add source</h4>
-    <input id="source_freq">
-    <button onclick="changeSourceFrequency()">change</button>
+    <p>change dampening constant in range (0, 1) -> I'll give you the freedom to try out any dampening constant (0,n) though since it can give interesting results</p>
+    <input id="dampening">
+    <button onclick="changeDampening()">change</button>
+    </br>
+    <p>change source function: format f(t) -> Example: 5 * sin(2 * t)</p>
+    <input id="expression" size="50">
+    <button onClick="changeSourceExpression()">change</button>
     <p id="source">Source = </p>
     <script src="source.js"></script>
+    </br>
+    <button onclick="clearAllSources()">Clear All Sources</button>
+    </br>
+    <button onclick="clearAll()">Clear All</button>
 </body>
 
 </html>
