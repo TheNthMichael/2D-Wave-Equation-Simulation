@@ -9,7 +9,7 @@ var imageBuffer;
 var time = 0;
 var frequency;
 var text;
-var expression = 'cos(v * p * t / T)';
+var expression = '20 * cos(v * p * t / T)';
 var color_rgb;
 var color_hsv;
 
@@ -26,7 +26,7 @@ var CFL = 0.5;
 var c = 1;
 var dt = CFL * dx / c;
 
-var damp_constant = 0.999;
+var damp_constant = 0.995;
 
 var wbp1;
 var wbm1;
@@ -382,7 +382,7 @@ window.onload = () => {
     imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     imageBuffer = imageData.data;
     let source = .1 * .1 * 10000 * Math.cos(10 * Math.PI * 2 / 20);
-    expression = 'cos(v * p * t / T)';
+    expression = '20 * cos(v * p * t / T)';
     vars = {
         'd': .1,
         'v': 10,
