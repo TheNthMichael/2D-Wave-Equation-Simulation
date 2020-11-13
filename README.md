@@ -1,5 +1,5 @@
 # Wave Equation Simulation
-[Check Out a Demo](https://thenthmichaelnickerson.github.io/2D-Wave-Equation-Simulation/)
+[Check Out a Demo](https://thenthmichael.github.io/2D-Wave-Equation-Simulation/)
 
 ## Expression Parser and Interpreter
 `operators: {+,-,*,/,^,%,&,|}`
