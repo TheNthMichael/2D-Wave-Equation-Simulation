@@ -167,7 +167,7 @@ class Expression {
     tokenize() {
         let tokens = [];
         for (let i = 0; i < this.expression.length; i++) {
-            if ((this.expression[i] <= '9' && this.expression[i] >= '0')) {
+            if ((this.expression[i] <= '9' && this.expression[i] >= '0') || (this.expression[i] == '-' && (tokens.length == 0 || tokens[tokens.length - 1] in this.operators))) {
                 // if we find the start of a number
                 let number = this.expression[i];
                 i++;
@@ -176,6 +176,8 @@ class Expression {
                     i++;
                 }
                 i--; // for loop already increments at the end of this
+                if (number == '-')
+                    return null;
                 tokens.push(number);
             } else if (i + 1 < this.expression.length && this.isAlpha(this.expression[i]) && (this.isAlpha(this.expression[i + 1]) || this.expression[i + 1] == '(')) {
                 let cnt = 0;
@@ -258,7 +260,7 @@ class Expression {
                         alert(`${name} is not a defined function`);
                     }
                     output.push(new ExpFunction(name, this.tokens[i + 1], this.functions[name], this.variables));
-                } else if (this.tokens[i][0] <= '9' && this.tokens[i][0] >= '0') {
+                } else if ((this.tokens[i][0] <= '9' && this.tokens[i][0] >= '0') || (this.tokens[i][0] == '-' && this.tokens[i][1] <= '9' && this.tokens[i][1] >= '0')) {
                     // type is constant
                     output.push(new ExpConstant(this.tokens[i]));
                 } else if (this.isAlpha(this.tokens[i][0])) {
