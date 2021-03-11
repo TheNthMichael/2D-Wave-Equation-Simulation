@@ -167,7 +167,8 @@ class Expression {
     tokenize() {
         let tokens = [];
         for (let i = 0; i < this.expression.length; i++) {
-            if ((this.expression[i] <= '9' && this.expression[i] >= '0') || (this.expression[i] == '-' && (tokens.length == 0 || tokens[tokens.length - 1] in this.operators))) {
+            if ((this.expression[i] <= '9' && this.expression[i] >= '0') ||
+                (this.expression[i] == '-' && (tokens.length == 0 || (tokens[tokens.length - 1] in this.operators || tokens[tokens.length - 1] == '(' || tokens[tokens.length - 1] == ')')))) {
                 // if we find the start of a number
                 let number = this.expression[i];
                 i++;
